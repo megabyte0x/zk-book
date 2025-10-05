@@ -1,17 +1,22 @@
-// Converting Arthematic Circuits to R1CS
+// ZK proof from R1CS
 
 use ndarray::prelude::*;
 
 /**
- * 
+ *
  * This is verifing the following constraint:
  * z === x * y
  */
 pub fn z_equal_to_x_and_y() {
+    // Output Matrix
     let o = array![[0, 1, 0, 0]];
+    // Left hand side
     let l = array![[0, 0, 1, 0]];
+    // Right hand side
     let r = array![[0, 0, 0, 1]];
 
+    // Witness
+    // [1, z, x, y]
     let a = array![1, 4223, 41, 103];
 
     let r1 = l.dot(&a);
